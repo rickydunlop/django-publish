@@ -8,7 +8,7 @@ try:
 except ImportError:
     # only using this code if on before Django 1.4
     from django.contrib.admin.filterspecs import FilterSpec, RelatedFilterSpec as RelatedFieldListFilter
-    
+
     class FieldListFilter(object):
         @classmethod
         def register(cls, test, list_filter_class, take_priority=False):
@@ -37,4 +37,3 @@ class PublishableRelatedFieldListFilter(RelatedFieldListFilter):
 
 def register_filters():
     FieldListFilter.register(is_publishable_filter, PublishableRelatedFieldListFilter, take_priority=True)
-
